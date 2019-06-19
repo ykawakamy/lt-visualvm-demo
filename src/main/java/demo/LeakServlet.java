@@ -67,6 +67,10 @@ public class LeakServlet extends HttpServlet {
             log.info("leak thread start");
             try {
                 while (asyncActive.get() ) {
+//                    if( !isLiveServlet ) {
+//                        log.info("servlet is destroyed.");
+//                        break;
+//                    }
                     holder.set((byte) (System.currentTimeMillis() & 0xFF));
                     Thread.sleep(20);
 
